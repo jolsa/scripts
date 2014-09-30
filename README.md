@@ -37,49 +37,51 @@ If you want to use it without an AMD loader, here's a kludge.  Note it uses arra
 
 ##Example:
 
-var i, count = 500000;
-var timer = new stepTimer();
-//	1. Do some stuff
-for (i = 0; i < count; i++); // Just to get some time to pass
-timer.addStep("1. Do some stuff");
-//	2. Do some more stuff
-for (i = 0; i < count; i++);
-timer.addStep("2. Do some more stuff");
-//	3. Do some more stuff
-for (i = 0; i < count; i++);
-timer.addStep("3. Do some more stuff");
+	<script>
+		var i, count = 500000;
+		var timer = new stepTimer();
+		//	1. Do some stuff
+		for (i = 0; i < count; i++); // Just to get some time to pass
+		timer.addStep("1. Do some stuff");
+		//	2. Do some more stuff
+		for (i = 0; i < count; i++);
+		timer.addStep("2. Do some more stuff");
+		//	3. Do some more stuff
+		for (i = 0; i < count; i++);
+		timer.addStep("3. Do some more stuff");
 
-for (i = 0; i < count; i++); // Get more time to pass to show difference between summed and elapsed
-var withSummedTotal = timer.toString(true);	// Shows total time as sum of steps
-console.log(withSummedTotal);
-var withElapsedTotal = timer.toString();	// Shows total time since timer was created (or reset)
-console.log(withElapsedTotal);
+		for (i = 0; i < count; i++); // Get more time to pass to show difference between summed and elapsed
+		var withSummedTotal = timer.toString(true);	// Shows total time as sum of steps
+		console.log(withSummedTotal);
+		var withElapsedTotal = timer.toString();	// Shows total time since timer was created (or reset)
+		console.log(withElapsedTotal);
 
-//	Change the time format and reset the timer (clears previous steps)
-console.log(timer.get_format());
-timer.set_format("s.ff"); // default: "mm:ss:fff"
-timer.reset();
-//	4. Do some stuff
-for (i = 0; i < count; i++);
-timer.addStep("4. Do some some stuff");
-//	5. Do some more stuff
-for (i = 0; i < count; i++);
-timer.addStep("5. Do some more stuff");
-//	6. Do some more stuff
-for (i = 0; i < count; i++);
-timer.addStep("6. Do some more stuff");
+		//	Change the time format and reset the timer (clears previous steps)
+		console.log(timer.get_format());
+		timer.set_format("s.ff"); // default: "mm:ss:fff"
+		timer.reset();
+		//	4. Do some stuff
+		for (i = 0; i < count; i++);
+		timer.addStep("4. Do some some stuff");
+		//	5. Do some more stuff
+		for (i = 0; i < count; i++);
+		timer.addStep("5. Do some more stuff");
+		//	6. Do some more stuff
+		for (i = 0; i < count; i++);
+		timer.addStep("6. Do some more stuff");
 
-//	Get total milliseconds
-for (i = 0; i < count; i++); // Get more time to pass to show difference between summed and elapsed
-var totalSum = timer.getTotalTime(true);
-var totalElapsed = timer.getTotalTime(); // false could be passed, but is the default
-console.log(totalSum);
-console.log(totalElapsed);
+		//	Get total milliseconds
+		for (i = 0; i < count; i++); // Get more time to pass to show difference between summed and elapsed
+		var totalSum = timer.getTotalTime(true);
+		var totalElapsed = timer.getTotalTime(); // false could be passed, but is the default
+		console.log(totalSum);
+		console.log(totalElapsed);
 
-var step2 = timer.get_steps()[1];
-console.log(totalSum);
-console.log(step2.message); 
-console.log(timer.formatTime(step2.time)); // format milliseconds with the format set
+		var step2 = timer.get_steps()[1];
+		console.log(totalSum);
+		console.log(step2.message); 
+		console.log(timer.formatTime(step2.time)); // format milliseconds with the format set
+	</script>
 
 ##My console results:
 

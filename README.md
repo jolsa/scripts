@@ -85,20 +85,20 @@ If you want to use it without an AMD loader, here's a kludge.  Note it uses arra
 
 ##My console results:
 
-1. Do some stuff:	00:00.029
-2. Do some more stuff:	00:00.031
-3. Do some more stuff:	00:00.023
-Total time:	00:00.083
-1. Do some stuff:	00:00.029
-2. Do some more stuff:	00:00.031
-3. Do some more stuff:	00:00.023
-Total time:	00:00.108
-mm:ss.fff
-57
-75
-57
-5. Do some more stuff
-0.01
+	> 1. Do some stuff:	00:00.029
+	> 2. Do some more stuff:	00:00.031
+	> 3. Do some more stuff:	00:00.023
+	> Total time:	00:00.083
+	> 1. Do some stuff:	00:00.029
+	> 2. Do some more stuff:	00:00.031
+	> 3. Do some more stuff:	00:00.023
+	> Total time:	00:00.108
+	> mm:ss.fff
+	> 57
+	> 75
+	> 57
+	> 5. Do some more stuff
+	> 0.01
 
 numbers.js:
 ===========

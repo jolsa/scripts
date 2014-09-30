@@ -15,6 +15,7 @@ numbers.js:
 ===========
 
 .in() : returns true if the number matches one of the values (and type) passed:
+
 	var x = 5;
 	x.in(1, 3, 5) // returns true
 	!x.in(1, 3, 5) // returns false

@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"C:\\Users\\Johnny\\Documents\\Visual Studio\\Projects\\AmdTest\\app\\strings.min.js",
+"lineCount":8,
+"mappings":"A;;;;;;;AASAA,MAAAC,UAAAC,OAAA,CAA0BC,QAAS,CAACC,CAAD,CACnC,CAAE,MAAWC,MAAJ,CAAUD,CAAV,CAAgB,CAAhB,CAAAE,KAAA,CAAwB,IAAxB,CAAT,CAEAN,OAAAC,UAAAM,QAAA,CAA2BC,QAAS,EACpC,CACC,IAAIC,CACJA,EAAA,CADWA,IACJC,QAAA,CAAa,UAAb,CAAyB,UAAzB,CAAAA,QAAA,CAAwC,IAAxC,CAA8C,QAA9C,CACPD,EAAA,CAAOA,CAAAC,QAAA,CAAa,UAAb,CAAyB,UAAzB,CAAAA,QAAA,CAAwC,IAAxC,CAA8C,QAA9C,CACPD,EAAA,CAAOA,CAAAC,QAAA,CAAa,YAAb,CAA2B,QAA3B,CACPD,EAAA,CAAOA,CAAAC,QAAA,CAAa,YAAb,CAA2B,YAA3B,CACPD,EAAA,CAAOA,CAAAC,QAAA,CAAa,qBAAb,CAAoC,YAApC,CAGP,OADAD,EACA,CADOA,CAAAC,QAAA,CAAa,eAAb,CAA8B,IAA9B,CARR;",
+"sources":["C:\\Users\\Johnny\\Documents\\Visual Studio\\Projects\\AmdTest\\app\\strings.js"],
+"names":["String","prototype","repeat","String.prototype.repeat","num","Array","join","fancify","String.prototype.fancify","text","replace"]
+}

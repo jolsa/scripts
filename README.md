@@ -9,7 +9,94 @@ Constructive (and non-derogatory) comments and suggestions are welcomed.
 
 arrays.js, numbers.js, and strings.js extend the native objects.  I know several people oppose that idea, but I've found these extensions very useful and have yet to come across a reason why they're bad, when used carefully.
 
+stepTimer.js
+============
+
 stepTimer.js is a class for recording and displaying elapsed time for code run in Javascript which has been useful to me when optimizing my Javascript.  It conforms to AMD (as far as I know) and can be loaded with require.js or other AMD standards. (I've only tested it with require.js.)
+
+If you want to use it without an AMD loader, here's a kludge.  Note it uses arrays.js.
+
+	<script src="app/arrays.js"></script>
+	<script>
+		var stepTimer;
+		function define(name, deps, callback)
+		{
+			//	Adjust for name not passed
+			if (typeof name !== typeofType.String)
+			{
+				callback = deps;
+				deps = name;
+			}
+			//	Adjust for deps not passed
+			if (!deps.isArray)
+				callback = deps;
+			stepTimer = callback();// We want the "class" that stepTimer returns
+		}
+	</script>
+	<script src="app/stepTimer.js"></script>
+
+##Example:
+
+var i, count = 500000;
+var timer = new stepTimer();
+//	1. Do some stuff
+for (i = 0; i < count; i++); // Just to get some time to pass
+timer.addStep("1. Do some stuff");
+//	2. Do some more stuff
+for (i = 0; i < count; i++);
+timer.addStep("2. Do some more stuff");
+//	3. Do some more stuff
+for (i = 0; i < count; i++);
+timer.addStep("3. Do some more stuff");
+
+for (i = 0; i < count; i++); // Get more time to pass to show difference between summed and elapsed
+var withSummedTotal = timer.toString(true);	// Shows total time as sum of steps
+console.log(withSummedTotal);
+var withElapsedTotal = timer.toString();	// Shows total time since timer was created (or reset)
+console.log(withElapsedTotal);
+
+//	Change the time format and reset the timer (clears previous steps)
+console.log(timer.get_format());
+timer.set_format("s.ff"); // default: "mm:ss:fff"
+timer.reset();
+//	4. Do some stuff
+for (i = 0; i < count; i++);
+timer.addStep("4. Do some some stuff");
+//	5. Do some more stuff
+for (i = 0; i < count; i++);
+timer.addStep("5. Do some more stuff");
+//	6. Do some more stuff
+for (i = 0; i < count; i++);
+timer.addStep("6. Do some more stuff");
+
+//	Get total milliseconds
+for (i = 0; i < count; i++); // Get more time to pass to show difference between summed and elapsed
+var totalSum = timer.getTotalTime(true);
+var totalElapsed = timer.getTotalTime(); // false could be passed, but is the default
+console.log(totalSum);
+console.log(totalElapsed);
+
+var step2 = timer.get_steps()[1];
+console.log(totalSum);
+console.log(step2.message); 
+console.log(timer.formatTime(step2.time)); // format milliseconds with the format set
+
+##My console results:
+
+1. Do some stuff:	00:00.029
+2. Do some more stuff:	00:00.031
+3. Do some more stuff:	00:00.023
+Total time:	00:00.083
+1. Do some stuff:	00:00.029
+2. Do some more stuff:	00:00.031
+3. Do some more stuff:	00:00.023
+Total time:	00:00.108
+mm:ss.fff
+57
+75
+57
+5. Do some more stuff
+0.01
 
 numbers.js:
 ===========

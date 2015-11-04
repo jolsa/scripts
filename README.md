@@ -14,26 +14,15 @@ stepTimer.js
 
 stepTimer.js is a class for recording and displaying elapsed time for code run in Javascript which has been useful to me when optimizing my Javascript.  It conforms to AMD (as far as I know) and can be loaded with require.js or other AMD standards. (I've only tested it with require.js.)
 
-If you want to use it without an AMD loader, here's a kludge.  Note it uses arrays.js.
+If you want to use it without an AMD loader, I have a script called noRequire.js.
 
-	<script src="app/arrays.js"></script>
+	<script src="noRequire.js"></script>
+	<script src="arrays.js"></script> <!-- required dependency for stepTimer.js -->
+	<script src="stepTimer.js"></script>
 	<script>
-		var stepTimer;
-		function define(name, deps, callback)
-		{
-			//	Adjust for name not passed
-			if (typeof name !== typeofType.String)
-			{
-				callback = deps;
-				deps = name;
-			}
-			//	Adjust for deps not passed
-			if (!deps.isArray)
-				callback = deps;
-			stepTimer = callback();// We want the "class" that stepTimer returns
-		}
+		// noRequire.js creates amdList whose properties are the AMD's by name
+		var stepTimer = amdList.stepTimer;
 	</script>
-	<script src="app/stepTimer.js"></script>
 
 ##Example:
 

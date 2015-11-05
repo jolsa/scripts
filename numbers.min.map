@@ -1,8 +1,8 @@
 {
 "version":3,
-"file":"C:\\Users\\Johnny\\Documents\\Visual Studio\\Projects\\AmdTest\\app\\numbers.min.js",
+"file":"numbers.min.js",
 "lineCount":8,
 "mappings":"A;;;;;;;AAWAA,MAAAC,UAAAC,CAAiB,IAAjBA,CAAA,CAAsBC,QAAS,EAC/B,CAYC,IAAIC,EAAOC,KAAAC,MAAA,CAAY,IAAZ,CAAkBC,SAAlB,CACX,IAAKH,CAAAA,CAAL,EAA6B,CAA7B,GAAaA,CAAAI,OAAb,CACC,MAAO,CAAA,CACR,KAAIC,EAAI,IAAAC,QAAA,EACR,OAAON,EAAAO,KAAA,CAAU,QAAS,CAACC,CAAD,CAAI,CAAE,MAAOA,EAAP,GAAaH,CAAf,CAAvB,CAhBR;",
-"sources":["C:\\Users\\Johnny\\Documents\\Visual Studio\\Projects\\AmdTest\\app\\numbers.js"],
+"sources":["numbers.js"],
 "names":["Number","prototype","in","Number.prototype.in","nums","Array","apply","arguments","length","v","valueOf","some","e"]
 }

@@ -6,7 +6,7 @@
     <title>Scripts by jolsa</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
     <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -31,7 +31,7 @@
       </header>
       <section>
         <h1>
-<a name="scripts" class="anchor" href="#scripts"><span class="octicon octicon-link"></span></a>scripts</h1>
+<a id="scripts" class="anchor" href="#scripts" aria-hidden="true"><span class="octicon octicon-link"></span></a>scripts</h1>
 
 <p>Useful Javascript functionality</p>
 
@@ -42,34 +42,23 @@
 <p>arrays.js, numbers.js, and strings.js extend the native objects.  I know several people oppose that idea, but I've found these extensions very useful and have yet to come across a reason why they're bad, when used carefully.</p>
 
 <h1>
-<a name="steptimerjs" class="anchor" href="#steptimerjs"><span class="octicon octicon-link"></span></a>stepTimer.js</h1>
+<a id="steptimerjs" class="anchor" href="#steptimerjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>stepTimer.js</h1>
 
 <p>stepTimer.js is a class for recording and displaying elapsed time for code run in Javascript which has been useful to me when optimizing my Javascript.  It conforms to AMD (as far as I know) and can be loaded with require.js or other AMD standards. (I've only tested it with require.js.)</p>
 
-<p>If you want to use it without an AMD loader, here's a kludge.  Note it uses arrays.js.</p>
+<p>If you want to use it without an AMD loader, I have a script called noRequire.js.</p>
 
-<pre><code>&lt;script src="app/arrays.js"&gt;&lt;/script&gt;
+<pre><code>&lt;script src="noRequire.js"&gt;&lt;/script&gt;
+&lt;script src="arrays.js"&gt;&lt;/script&gt; &lt;!-- required dependency for stepTimer.js --&gt;
+&lt;script src="stepTimer.js"&gt;&lt;/script&gt;
 &lt;script&gt;
-    var stepTimer;
-    function define(name, deps, callback)
-    {
-        //  Adjust for name not passed
-        if (typeof name !== typeofType.String)
-        {
-            callback = deps;
-            deps = name;
-        }
-        //  Adjust for deps not passed
-        if (!deps.isArray)
-            callback = deps;
-        stepTimer = callback();// We want the "class" that stepTimer returns
-    }
+    // noRequire.js creates amdList whose properties are the AMD's by name
+    var stepTimer = amdList.stepTimer;
 &lt;/script&gt;
-&lt;script src="app/stepTimer.js"&gt;&lt;/script&gt;
 </code></pre>
 
 <h2>
-<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example:</h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example:</h2>
 
 <pre><code>&lt;script&gt;
     var i, count = 500000;
@@ -119,7 +108,7 @@
 </code></pre>
 
 <h2>
-<a name="my-console-results" class="anchor" href="#my-console-results"><span class="octicon octicon-link"></span></a>My console results:</h2>
+<a id="my-console-results" class="anchor" href="#my-console-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>My console results:</h2>
 
 <pre><code>&gt; 1. Do some stuff: 00:00.029
 &gt; 2. Do some more stuff:    00:00.031
@@ -138,10 +127,10 @@
 </code></pre>
 
 <h1>
-<a name="numbersjs" class="anchor" href="#numbersjs"><span class="octicon octicon-link"></span></a>numbers.js:</h1>
+<a id="numbersjs" class="anchor" href="#numbersjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>numbers.js:</h1>
 
 <h4>
-<a name="in" class="anchor" href="#in"><span class="octicon octicon-link"></span></a>.in():</h4>
+<a id="in" class="anchor" href="#in" aria-hidden="true"><span class="octicon octicon-link"></span></a>.in():</h4>
 
 <p>Returns true if the number matches one of the values (and type) passed:</p>
 
@@ -152,10 +141,10 @@ x.in("1", "3", "5") // returns false because of types
 </code></pre>
 
 <h1>
-<a name="stringsjs" class="anchor" href="#stringsjs"><span class="octicon octicon-link"></span></a>strings.js:</h1>
+<a id="stringsjs" class="anchor" href="#stringsjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>strings.js:</h1>
 
 <h4>
-<a name="in-1" class="anchor" href="#in-1"><span class="octicon octicon-link"></span></a>.in():</h4>
+<a id="in-1" class="anchor" href="#in-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>.in():</h4>
 
 <p>Returns true if the string matches one of the values passed. If first argument is a boolean, true will be case insensitive, false will not. Case-insensitive is the default.</p>
 
@@ -166,7 +155,7 @@ s.in(true, "z", "xyz", "A") // returns true
 </code></pre>
 
 <h4>
-<a name="repeat" class="anchor" href="#repeat"><span class="octicon octicon-link"></span></a>.repeat():</h4>
+<a id="repeat" class="anchor" href="#repeat" aria-hidden="true"><span class="octicon octicon-link"></span></a>.repeat():</h4>
 
 <p>Repeats the string "n" times.</p>
 
@@ -174,83 +163,83 @@ s.in(true, "z", "xyz", "A") // returns true
 </code></pre>
 
 <h4>
-<a name="fancify" class="anchor" href="#fancify"><span class="octicon octicon-link"></span></a>.fancify():</h4>
+<a id="fancify" class="anchor" href="#fancify" aria-hidden="true"><span class="octicon octicon-link"></span></a>.fancify():</h4>
 
 <p>Replaces certain ASCII characters with extended characters.
     Double quotes are replace with the appropriate “”, single quotes or apostrophes with ‘’, " - " with " – ", "--" with "—", and "..." is replaced with "…".  Currently, it removes leading whitespace. I may add an option to NOT do that, but haven't yet.</p>
 
 <h1>
-<a name="arraysjs" class="anchor" href="#arraysjs"><span class="octicon octicon-link"></span></a>arrays.js</h1>
+<a id="arraysjs" class="anchor" href="#arraysjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>arrays.js</h1>
 
 <p>Extends arrays for .NET LINQ-like operations. Also adds an .isDate property to the date type.</p>
 
 <h4>
-<a name="sortbytype" class="anchor" href="#sortbytype"><span class="octicon octicon-link"></span></a>.sortByType():</h4>
+<a id="sortbytype" class="anchor" href="#sortbytype" aria-hidden="true"><span class="octicon octicon-link"></span></a>.sortByType():</h4>
 
 <p>Sorts the array by type.  The default .sort() method sorts as strings. If multiple types are present, they're sorted by type name first, then value. There is also an optional ignoreCase parameter for strings and a desc parameter for descending sorting.</p>
 
 <h4>
-<a name="firstordefault" class="anchor" href="#firstordefault"><span class="octicon octicon-link"></span></a>.firstOrDefault():</h4>
+<a id="firstordefault" class="anchor" href="#firstordefault" aria-hidden="true"><span class="octicon octicon-link"></span></a>.firstOrDefault():</h4>
 
 <p>Returns the first item that matches the criteria (either a filter callback function or a value). If no match is found (or the array is empty), null is returned. No arguments returns the first item (or null if empty).</p>
 
 <h4>
-<a name="lastordefault" class="anchor" href="#lastordefault"><span class="octicon octicon-link"></span></a>.lastOrDefault():</h4>
+<a id="lastordefault" class="anchor" href="#lastordefault" aria-hidden="true"><span class="octicon octicon-link"></span></a>.lastOrDefault():</h4>
 
 <p>Same as .firstOrDefault, but last instead of first.</p>
 
 <h4>
-<a name="max" class="anchor" href="#max"><span class="octicon octicon-link"></span></a>.max():</h4>
+<a id="max" class="anchor" href="#max" aria-hidden="true"><span class="octicon octicon-link"></span></a>.max():</h4>
 
 <p>Returns the maximum value in the array with an optional filter callback function.</p>
 
 <h4>
-<a name="min" class="anchor" href="#min"><span class="octicon octicon-link"></span></a>.min():</h4>
+<a id="min" class="anchor" href="#min" aria-hidden="true"><span class="octicon octicon-link"></span></a>.min():</h4>
 
 <p>Returns the minimum value in the array with an optional filter callback function.</p>
 
 <h4>
-<a name="distinct" class="anchor" href="#distinct"><span class="octicon octicon-link"></span></a>.distinct():</h4>
+<a id="distinct" class="anchor" href="#distinct" aria-hidden="true"><span class="octicon octicon-link"></span></a>.distinct():</h4>
 
 <p>Returns a distinct (and sorted) array of values.</p>
 
 <h4>
-<a name="union" class="anchor" href="#union"><span class="octicon octicon-link"></span></a>.union():</h4>
+<a id="union" class="anchor" href="#union" aria-hidden="true"><span class="octicon octicon-link"></span></a>.union():</h4>
 
 <p>Concatenates arrays and returns a distinct (and sorted) array of values.</p>
 
 <h4>
-<a name="zip" class="anchor" href="#zip"><span class="octicon octicon-link"></span></a>.zip():</h4>
+<a id="zip" class="anchor" href="#zip" aria-hidden="true"><span class="octicon octicon-link"></span></a>.zip():</h4>
 
 <p>Combines 2 arrays and returns the combined values as specified in the callback function. The order is by index and if the arrays have different lengths, the combined length will be the shorter of the two. </p>
 
 <h4>
-<a name="sum" class="anchor" href="#sum"><span class="octicon octicon-link"></span></a>.sum():</h4>
+<a id="sum" class="anchor" href="#sum" aria-hidden="true"><span class="octicon octicon-link"></span></a>.sum():</h4>
 
 <p>Returns the sum of the values (numbers only) in the array with an optional filter callback function.</p>
 
 <h4>
-<a name="average" class="anchor" href="#average"><span class="octicon octicon-link"></span></a>.average():</h4>
+<a id="average" class="anchor" href="#average" aria-hidden="true"><span class="octicon octicon-link"></span></a>.average():</h4>
 
 <p>Returns the average of the values (numbers only) in the array with an optional filter callback function.</p>
 
 <h4>
-<a name="takewhile" class="anchor" href="#takewhile"><span class="octicon octicon-link"></span></a>.takeWhile():</h4>
+<a id="takewhile" class="anchor" href="#takewhile" aria-hidden="true"><span class="octicon octicon-link"></span></a>.takeWhile():</h4>
 
 <p>Returns the items in the array (starting with the first) until the callback function returns false.</p>
 
 <h4>
-<a name="todictionary" class="anchor" href="#todictionary"><span class="octicon octicon-link"></span></a>.toDictionary():</h4>
+<a id="todictionary" class="anchor" href="#todictionary" aria-hidden="true"><span class="octicon octicon-link"></span></a>.toDictionary():</h4>
 
 <p>Converts the array to a Javascript "dictionary" as specified by the callback functions for keys and values. If the value callback is not used, the value will be the key.</p>
 
 <h4>
-<a name="contains" class="anchor" href="#contains"><span class="octicon octicon-link"></span></a>.contains():</h4>
+<a id="contains" class="anchor" href="#contains" aria-hidden="true"><span class="octicon octicon-link"></span></a>.contains():</h4>
 
 <p>Returns true if the array contains the passed value.  I may add an optional ignoreCase parameter for strings, but haven't yet.</p>
       </section>
       <footer>
-        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->

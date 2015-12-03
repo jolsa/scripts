@@ -12,7 +12,7 @@ arrays.js, numbers.js, and strings.js extend the native objects.  I know several
 stepTimer.js
 ============
 
-stepTimer.js is a class for recording and displaying elapsed time for code run in Javascript which has been useful to me when optimizing my Javascript.  It conforms to AMD (as far as I know) and can be loaded with require.js or other AMD standards. (I've only tested it with require.js.)
+stepTimer.js is a “class” for recording and displaying elapsed time for code run in Javascript which has been useful to me when optimizing my Javascript.  It conforms to AMD (as far as I know) and can be loaded with require.js or other AMD standards. (I've only tested it with require.js.)
 
 If you want to use it without an AMD loader, I have a script called noRequire.js.
 
@@ -28,7 +28,7 @@ If you want to use it without an AMD loader, I have a script called noRequire.js
 
 	<script>
 		var i, count = 500000;
-		var timer = new stepTimer();
+		var timer = stepTimer();
 		//	1. Do some stuff
 		for (i = 0; i < count; i++); // Just to get some time to pass
 		timer.addStep("1. Do some stuff");

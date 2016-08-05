@@ -5,7 +5,6 @@
  * Feel free to download and share!
  * Comments and critique to johnny@johnnyolsa.com
 */
-
 define("parsers", ["dates"], function ()
 {
 	"use strict";
@@ -84,6 +83,17 @@ define("parsers", ["dates"], function ()
 
 		return new Date(y, m, d);
 	}
+	function numDigits(num)
+	{
+		///	<summary>
+		///		Returns the number of digits in an integer.
+		///	</summary>
+		///	<param name="num" type="Number">
+		///		Number to check
+		///	</param>
+		///	<returns type="Number"></returns>
+		return Math.max(Math.floor(Math.log10(Math.abs(num))), 0) + 1;
+	}
 	function timeParser(string)
 	{
 		///	<summary>
@@ -103,6 +113,9 @@ define("parsers", ["dates"], function ()
 		if (pm)
 			a[0] += 12;
 
+		//	Make sure milliseconds is 3 digits or less
+		if (numDigits(a[3]) > 3)
+			a[3] *= Math.pow(10, 3 - numDigits(a[3]));
 		//	validate inputs
 		if (a[0] > 23 || a[1] > 59 || a[2] > 59 || a[3] > 999)
 			return NaN;
@@ -118,6 +131,7 @@ define("parsers", ["dates"], function ()
 	return lib = 
 	{
 		filledArray: filledArray,
+		numDigits: numDigits,
 		numParser: numParser,
 		dateParser: dateParser,
 		timeParser: timeParser
